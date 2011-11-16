@@ -5,4 +5,5 @@ log/*.log
 tmp/**/*
 .rvmrc
 public/stylesheets/*
+public/uploads/*
 vendor/bundle

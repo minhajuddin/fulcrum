@@ -32,6 +32,8 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cancan (1.6.1)
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     chunky_png (1.2.0)
@@ -128,6 +130,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan (= 1.6.1)
+  carrierwave
   compass (>= 0.11.5)
   devise (= 1.2.1)
   factory_girl_rails

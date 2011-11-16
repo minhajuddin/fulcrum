@@ -5,7 +5,7 @@ var StoryView = FormView.extend({
   initialize: function() {
     _.bindAll(this, "render", "highlight", "moveColumn", "setClassName",
       "transition", "estimate", "disableForm", "renderNotes",
-      "renderNotesCollection", "addEmptyNote");
+      "renderNotesCollection", "addEmptyNote", "renderAttachments", "renderAttachmentsCollection", "addAttachmentForm");
 
     // Rerender on any relevant change to the views story
     this.model.bind("change", this.render);
@@ -288,6 +288,8 @@ var StoryView = FormView.extend({
       this.initTags();
 
       this.renderNotes();
+      this.addAttachmentForm();
+      //this.renderAttachments();
 
     } else {
       $(this.el).html($('#story_tmpl').tmpl(this.model.toJSON(), {story: this.model, view: this}));
@@ -361,6 +363,42 @@ var StoryView = FormView.extend({
     });
   },
 
+  renderAttachments: function() {
+    if (this.model.attachments.length > 0) {
+      var el = $(this.el);
+      el.append('<hr/>');
+      el.append('<h3>Attachment</h3>');
+      el.append('<div class="attachmentlist"/>');
+      this.renderAttachmentsCollection();
+    }
+  },
+
+  renderAttachmentsCollection: function() {
+    this.addAttachmentForm();
+    //var list = this.$('div.attachmentlist');
+    //list.html('');
+    //this.model.notes.each(function(note) {
+      //var view;
+      //if (note.isNew()) {
+        //view = new NoteForm({model: note});
+      //} else {
+        //view = new NoteView({model: note});
+      //}
+      //notelist.append(view.render().el);
+    //});
+  },
+
+  addAttachmentForm: function() {
+
+    // Don't add an empty note if the story is unsaved.
+    if (this.model.isNew()) {
+      return;
+    }
+
+    $(this.el).append($('#attachment_tmpl').tmpl({project_id:this.model.get('project_id'), story_id: this.model.id}));
+    $("#fileupload").fileupload();
+  },
+
   renderNotes: function() {
     if (this.model.notes.length > 0) {
       var el = $(this.el);
@@ -385,6 +423,7 @@ var StoryView = FormView.extend({
       notelist.append(view.render().el);
     });
   },
+
 
   addEmptyNote: function() {
 

@@ -14,6 +14,8 @@ gem 'rails', '3.0.10'
 # PostgreSQL
 gem 'pg'
 
+gem 'carrierwave'
+
 gem 'devise', '1.2.1'
 gem 'cancan', '1.6.1'
 gem 'transitions', '0.0.9', :require => ["transitions", "active_record/transitions"]

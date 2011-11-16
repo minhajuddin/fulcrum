@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
     "state", "position", "id", "events", "estimable", "estimated", "labels"
   ]
   JSON_METHODS = [
-    "events", "estimable", "estimated", "errors", "notes"
+    "events", "estimable", "estimated", "errors", "notes", "attachments"
   ]
   CSV_HEADERS = [
     "Id", "Story","Labels","Iteration","Iteration Start","Iteration End",
@@ -26,6 +26,7 @@ class Story < ActiveRecord::Base
   validates :owned_by_id, :belongs_to_project => true
 
   has_many :changesets
+  has_many :attachments
   has_many :notes do
 
     # Creates a collection of rows on this story from a CSV::Row instance

@@ -70,6 +70,7 @@
     </div>
     {{/each}}
   {{/if}}
+
 </script>
 
 <script id="note_tmpl" type="text/x-jQuery-tmpl">
@@ -78,6 +79,27 @@
     <span class="user">${note.userName()}</span> -
     <span class="created_at">${note.get("created_at")}</span>
   </div>
+</script>
+
+<script id="attachment_tmpl" type="text/x-jQuery-tmpl">
+
+<div id="fileupload">
+    <form action="/projects/${project_id}/stories/${story_id}/attachments/" method="POST" enctype="multipart/form-data">
+        <div class="fileupload-buttonbar">
+            <label class="fileinput-button">
+                <span>Add files...</span>
+                <input type="file" name="attachment[file]" multiple>
+            </label>
+            <button type="submit" class="start">Start upload</button>
+            <button type="reset" class="cancel">Cancel upload</button>
+            <button type="button" class="delete">Delete files</button>
+        </div>
+    </form>
+    <div class="fileupload-content">
+        <table class="files"></table>
+        <div class="fileupload-progressbar"></div>
+    </div>
+</div>
 </script>
 
 <script type="text/javascript">
