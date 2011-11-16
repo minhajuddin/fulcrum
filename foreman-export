@@ -1,0 +1,3 @@
+#!/bin/bash
+rvmsudo foreman export upstart /etc/init -e config/foreman.env -a fulcrum -u minhajuddin -l /var/www/apps/fulcrum/log
+

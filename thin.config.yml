@@ -1,0 +1,11 @@
+---
+environment: production
+chdir: /var/www/apps/fulcrum/
+socket: /var/www/apps/fulcrum/tmp/thin.sock
+pid: /var/www/apps/fulcrum/tmp/thin.pid
+rackup: /var/www/apps/fulcrum/config.ru
+log: /var/www/apps/fulcrum/tmp/thin.log
+max_conns: 1024
+timeout: 30
+max_persistent_conns: 512
+#daemonize: true

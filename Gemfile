@@ -6,13 +6,13 @@ gem 'rails', '3.0.10'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # SQLite
-gem 'sqlite3-ruby', :require => 'sqlite3'
+#gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # MySQL
 # gem 'mysql2', '~> 0.2.6'
 
 # PostgreSQL
-# gem 'pg'
+gem 'pg'
 
 gem 'devise', '1.2.1'
 gem 'cancan', '1.6.1'
@@ -47,4 +47,8 @@ gem 'compass', '>= 0.11.5'
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'jasmine', '1.1.0'
+end
+
+group :production do
+  gem 'thin'
 end
