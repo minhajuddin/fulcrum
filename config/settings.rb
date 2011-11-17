@@ -1,7 +1,7 @@
 require 'yaml'
 
 class Settings
-  @@settings = YAML::load_file(Rails.root + 'config/config.yml')[Rails.env]
+  @@settings = YAML::load_file(File.expand_path(File.join(File.dirname(__FILE__), 'config.yml')))[ENV['RAILS_ENV'] ? ENV['RAILS_ENV'] : 'development']
 
   class MissingSettingOptionError < StandardError;
   end
