@@ -22,12 +22,7 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 gem 'compass', '>= 0.11.5'
 # (using standard csv lib if ruby version is 1.9)
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
+gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug'
 
@@ -50,5 +45,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'thin'
+  gem 'unicorn'
 end

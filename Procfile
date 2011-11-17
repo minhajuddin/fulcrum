@@ -1,1 +1,1 @@
-thin: rvmsudo bundle exec thin start --config thin.config.yml
+unicorn: bundle exec unicorn -c config/unicorn.rb -E $RAILS_ENV
