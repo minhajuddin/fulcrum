@@ -1,7 +1,7 @@
 ---
 defaults: &defaults
   host: 'localhost:3000'
-  mailer_sender: tracker@bugs.cosmicvent.com
+  mailer_sender: tracker@i.cosmicvent.com
 
 development:
   <<: *defaults
@@ -14,4 +14,4 @@ staging:
 
 production:
   <<: *defaults
-  host: bugs.cosmicvent.com
+  host: i.cosmicvent.com
