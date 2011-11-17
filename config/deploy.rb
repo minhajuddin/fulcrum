@@ -22,7 +22,7 @@ set :scm, :git
 
 role :app, "c3"
 role :web, "c3"
-role :db, :primary => true
+role :db, "c3", :primary => true
 set :rails_env, :production
 
 namespace :unicorn do
