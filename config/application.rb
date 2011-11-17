@@ -1,3 +1,4 @@
+require File.expand_path('../settings', __FILE__)
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -38,6 +39,14 @@ module Fulcrum
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password, :password_confirmation]
+
+
+    ActionMailer::Base.delivery_method = :sendmail
+    ActionMailer::Base.sendmail_settings = {
+      :location       => '/usr/sbin/sendmail',
+      :arguments      => '-i -t'
+    }
+
   end
 end

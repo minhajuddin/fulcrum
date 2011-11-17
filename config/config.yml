@@ -1,6 +1,7 @@
 ---
 defaults: &defaults
-  host: bugs.dev
+  host: 'localhost:3000'
+  mailer_sender: tracker@bugs.cosmicvent.com
 
 development:
   <<: *defaults
@@ -13,3 +14,4 @@ staging:
 
 production:
   <<: *defaults
+  host: bugs.cosmicvent.com
